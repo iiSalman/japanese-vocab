@@ -39,12 +39,62 @@ h1 { font-size: 1.6rem; margin: 0 0 8px; }
 nav.crumbs { margin-bottom: 16px; font-size: 0.85rem; }
 nav.crumbs a { color: var(--accent); text-decoration: none; }
 nav.crumbs a:hover { text-decoration: underline; }
+
+
+.podcast {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+  background: #131922;
+  border: 1px solid #1e2a3a;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+.podcast-label {
+  font-size: 0.7rem; color: #93a0b2;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.podcast-title { font-size: 1.0rem; color: #e7eaf0; margin-bottom: 10px; }
+.podcast-body audio { width: 100%; }
+.pod-download {
+  display: inline-block; margin-top: 8px;
+  font-size: 0.8rem; color: #60a5fa;
+  text-decoration: none;
+}
+.pod-download:hover { text-decoration: underline; }
+.pod-status { color: #93a0b2; font-size: 0.88rem; font-style: italic; }
 </style>
 </head>
 <body>
 <nav class="crumbs"><a href="../index.html">← all shows</a> · <a href="index.html">vinland-saga</a></nav>
 <h1>Vinland Saga — S1E1</h1>
 <p class="subtitle">12 new words</p>
+<section class="podcast" data-slug="vinland-saga" data-section="season-1-episode-1" data-audio="audio/season-1-episode-1.mp3">
+  <div class="podcast-label">Audio overview</div>
+  <div class="podcast-title">NotebookLM podcast for this page</div>
+  <div class="podcast-body pod-status">Checking…</div>
+</section>
+<script>
+(function() {
+  const el = document.currentScript.previousElementSibling;
+  const audioRel = el.dataset.audio;
+  const body = el.querySelector('.podcast-body');
+  fetch(audioRel, { method: 'HEAD' })
+    .then(function(r) {
+      if (r.ok) {
+        body.innerHTML =
+          '<audio controls src="' + audioRel + '"></audio>' +
+          '<a class="pod-download" href="' + audioRel + '" download>&#x2B07; Download</a>';
+        body.classList.remove('pod-status');
+      } else {
+        body.textContent = 'Podcast brewing — refresh in a few minutes.';
+      }
+    })
+    .catch(function() {
+      body.textContent = 'Podcast brewing — refresh in a few minutes.';
+    });
+})();
+</script>
 <div class="grid">
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">noun</span><button class="tts" onclick="new Audio(&quot;audio/words/%E6%B5%B7.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -55,7 +105,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;ここらの<ruby>海<rt>うみ</rt></ruby>はな トルフィン <ruby>怖<rt>こわ</rt></ruby>いぞ&rdquo;</div>
 <div class="scene-en">&ldquo;The sea around here is frightening, Thorfinn.&rdquo;</div>
-<div class="why">the sea is the show's central frontier — voyages, sailors, and Vinland itself all hinge on it.</div>
+<div class="why">the sea is the show&#x27;s central frontier — voyages, sailors, and Vinland itself all hinge on it.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">noun</span><button class="tts" onclick="new Audio(&quot;audio/words/%E8%88%B9.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -66,7 +116,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;わしの<ruby>船<rt>ふね</rt></ruby>に<ruby>乗<rt>の</rt></ruby>るか&rdquo;</div>
 <div class="scene-en">&ldquo;Want to ride on my ship?&rdquo;</div>
-<div class="why">Leif's ship and Thorfinn's dream of sailing recur throughout the episode.</div>
+<div class="why">Leif&#x27;s ship and Thorfinn&#x27;s dream of sailing recur throughout the episode.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">noun</span><button class="tts" onclick="new Audio(&quot;audio/words/%E6%9D%91.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -76,7 +126,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 <img loading="lazy" src="https://image.pollinations.ai/prompt/minimalist%20flat%20illustration%20of%20%27village%27%2C%20soft%20pastel%20colors%2C%20no%20text?width=512&height=288&nologo=true" alt="village">
 </div>
 <div class="scene">S1E1 — &ldquo;この<ruby>村<rt>むら</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>じゃないわね&rdquo;</div>
-<div class="scene-en">&ldquo;This person isn't from the village.&rdquo;</div>
+<div class="scene-en">&ldquo;This person isn&#x27;t from the village.&rdquo;</div>
 <div class="why">the whole episode unfolds in this small Icelandic village.</div>
 </div>
 <div class="card">
@@ -88,7 +138,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;すぐに<ruby>友達<rt>ともだち</rt></ruby>になったよ&rdquo;</div>
 <div class="scene-en">&ldquo;We quickly became friends.&rdquo;</div>
-<div class="why">core everyday noun; here it frames Leif's tale of meeting the natives of Vinland.</div>
+<div class="why">core everyday noun; here it frames Leif&#x27;s tale of meeting the natives of Vinland.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">adj-i</span><button class="tts" onclick="new Audio(&quot;audio/words/%E5%AF%92%E3%81%84.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -99,7 +149,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;<ruby>寒<rt>さむ</rt></ruby>かったな ユルヴァちゃん&rdquo;</div>
 <div class="scene-en">&ldquo;It was cold, huh, Ylva.&rdquo;</div>
-<div class="why">the worsening cold is the episode's looming threat — frozen lands drive the talk of migration.</div>
+<div class="why">the worsening cold is the episode&#x27;s looming threat — frozen lands drive the talk of migration.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">adj-i</span><button class="tts" onclick="new Audio(&quot;audio/words/%E6%9A%96%E3%81%8B%E3%81%84.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -109,8 +159,8 @@ nav.crumbs a:hover { text-decoration: underline; }
 <img loading="lazy" src="https://image.pollinations.ai/prompt/minimalist%20flat%20illustration%20of%20%27warm%27%2C%20soft%20pastel%20colors%2C%20no%20text?width=512&height=288&nologo=true" alt="warm">
 </div>
 <div class="scene">S1E1 — &ldquo;ここよりも ずっと<ruby>暖<rt>あたた</rt></ruby>かくてな&rdquo;</div>
-<div class="scene-en">&ldquo;It's much warmer than here.&rdquo;</div>
-<div class="why">the warm, bountiful Vinland is set against the freezing north — learn it as 寒い's opposite.</div>
+<div class="scene-en">&ldquo;It&#x27;s much warmer than here.&rdquo;</div>
+<div class="why">the warm, bountiful Vinland is set against the freezing north — learn it as 寒い&#x27;s opposite.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">adj-i</span><button class="tts" onclick="new Audio(&quot;audio/words/%E5%BC%B7%E3%81%84.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -132,7 +182,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;<ruby>６人<rt>ろくにん</rt></ruby>の<ruby>仲間<rt>なかま</rt></ruby>は <ruby>皆<rt>みな</rt></ruby> <ruby>死<rt>し</rt></ruby>んだ&rdquo;</div>
 <div class="scene-en">&ldquo;All six of my comrades died.&rdquo;</div>
-<div class="why">essential verb; here it lands the weight of Leif's survival story on the ice.</div>
+<div class="why">essential verb; here it lands the weight of Leif&#x27;s survival story on the ice.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#10b981">N5</span><span class="pill type">verb</span><button class="tts" onclick="new Audio(&quot;audio/words/%E4%B9%97%E3%82%8B.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -165,7 +215,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;じゃあ ここからも<ruby>逃<rt>に</rt></ruby>げたい<ruby>人<rt>ひと</rt></ruby>は どこに<ruby>行<rt>い</rt></ruby>くの&rdquo;</div>
 <div class="scene-en">&ldquo;Then... where do people who want to flee from here go?&rdquo;</div>
-<div class="why">fleeing is the episode's whole theme — the runaway slave, the ancestors who fled Norway, and Thorfinn's closing question.</div>
+<div class="why">fleeing is the episode&#x27;s whole theme — the runaway slave, the ancestors who fled Norway, and Thorfinn&#x27;s closing question.</div>
 </div>
 <div class="card">
 <div class="card-head"><span class="pill jlpt" style="background:#f59e0b">N3</span><span class="pill type">noun</span><button class="tts" onclick="new Audio(&quot;audio/words/%E6%88%A6%E5%A3%AB.mp3&quot;).play()" aria-label="play pronunciation">🔊</button></div>
@@ -176,7 +226,7 @@ nav.crumbs a:hover { text-decoration: underline; }
 </div>
 <div class="scene">S1E1 — &ldquo;<ruby>真<rt>しん</rt></ruby>の<ruby>戦士<rt>せんし</rt></ruby>だけが <ruby>身<rt>み</rt></ruby>に<ruby>着<rt>つ</rt></ruby>けられるものなんだ&rdquo;</div>
 <div class="scene-en">&ldquo;Only a true warrior can wear this.&rdquo;</div>
-<div class="why">"what is a true warrior?" is the central question of Vinland Saga, planted here in episode 1.</div>
+<div class="why">&quot;what is a true warrior?&quot; is the central question of Vinland Saga, planted here in episode 1.</div>
 </div>
 </div>
 </body>
